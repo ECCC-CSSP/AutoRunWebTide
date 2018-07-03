@@ -96,7 +96,7 @@ namespace AutoRunWebTide
     public partial class AutoRunWebTide : Form
     {
         #region Global Variables
-        TidesAndCurrents tnc = new TidesAndCurrents(DateTime.Now, DateTime.Now.AddDays(7), -64.833849, 47.833140, 60, @"C:\CSSP\WebTide\data\nwatl\", true);
+        TidesAndCurrents tnc = new TidesAndCurrents(DateTime.Now, DateTime.Now.AddDays(7), -64.833849, 47.833140, 60, @"E:\CSSP\WebTide\data\nwatl\", true);
 
         public class DataFilePath
         {
@@ -280,12 +280,12 @@ namespace AutoRunWebTide
             dateTimePickerEndDate.Value = DateTime.Now.AddDays(7);
 
             // searching for files
-            DirectoryInfo di = new DirectoryInfo(@"C:\CSSP\WebTide\data\");
+            DirectoryInfo di = new DirectoryInfo(@"E:\CSSP\WebTide\data\");
 
             if (!di.Exists)
             {
                 richTextBoxStatus.AppendText("The Application is searching for webtide appliation and data path.\r\n");
-                richTextBoxStatus.AppendText(@"Searched in C:\CSSP\WebTide\data\" + "\r\n");
+                richTextBoxStatus.AppendText(@"Searched in E:\CSSP\WebTide\data\" + "\r\n");
             }
 
             List<DirectoryInfo> dirs = di.GetDirectories().ToList<DirectoryInfo>();
@@ -617,8 +617,8 @@ namespace AutoRunWebTide
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FileInfo fi = new FileInfo(@"C:\CSSP\WebTide\data\vigf8\vigf8.nod");
-            FileInfo fi2 = new FileInfo(@"C:\CSSP\vigf82.nod");
+            FileInfo fi = new FileInfo(@"E:\CSSP\WebTide\data\vigf8\vigf8.nod");
+            FileInfo fi2 = new FileInfo(@"E:\CSSP\vigf82.nod");
 
             StreamReader sr = fi.OpenText();
             StreamWriter sw = fi2.CreateText();
