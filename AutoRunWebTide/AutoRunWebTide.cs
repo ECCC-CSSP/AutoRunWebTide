@@ -280,12 +280,16 @@ namespace AutoRunWebTide
             dateTimePickerEndDate.Value = DateTime.Now.AddDays(7);
 
             // searching for files
-            DirectoryInfo di = new DirectoryInfo(@"E:\CSSP\WebTide\data\");
+            // DirectoryInfo di = new DirectoryInfo(@"E:\CSSP\WebTide\data\");
+
+            FileInfo fi = new FileInfo(Application.ExecutablePath);
+
+            DirectoryInfo di = new DirectoryInfo(fi.Directory.FullName + @"\WebTide\data\");
 
             if (!di.Exists)
             {
                 richTextBoxStatus.AppendText("The Application is searching for webtide appliation and data path.\r\n");
-                richTextBoxStatus.AppendText(@"Searched in E:\CSSP\WebTide\data\" + "\r\n");
+                richTextBoxStatus.AppendText($@"Searched in { fi.Directory.FullName + @"\WebTide\data\" }" + "\r\n");
             }
 
             List<DirectoryInfo> dirs = di.GetDirectories().ToList<DirectoryInfo>();
